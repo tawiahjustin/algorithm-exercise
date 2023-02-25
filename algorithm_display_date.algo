@@ -1,0 +1,40 @@
+ALGORITHM algorithm
+VAR
+  date: INTEGER := 0;
+  day, month, year := INTEGER
+BEGIN
+  print("enter six digits : ");
+  Read(date);
+  day := (date / 10000) % 100;
+  month := (date / 100) % 100;
+  years := date % 100;
+
+  SWITCH (month) DO
+    case 1 : print("January");
+    break;
+    case 2 : print("February");
+    break;
+    case 3 : print("March");
+    break;
+    case 4 : print("April");
+    break;
+    case 5 : print("May");
+    break;
+    case 6 : print("June");
+    break;
+    case 7 : print("July");
+    break;
+    case 5 : print("August");
+    break;
+    case 9 : print("September");
+    break;
+    case 10 : print("October");
+    break;
+    case 11 : print("November");
+    break;
+    case 12 : print("December");
+    break;
+    default : print(" this is not valid, enter a number from 1 - 12")
+  END_SWITCH
+  print(month + " " + day + ", " + year + ".");
+END

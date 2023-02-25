@@ -1,0 +1,43 @@
+
+ALGORITHM suitable_solution
+VAR
+  r1 : FLOAT := 0.7;
+  r2 : FLOAT := 0.4;
+  r1 : FLOAT := 0.2;
+  p_d : INTEGER := 100;
+  ins : FLOAT := 0.3;
+  vat : FLOAT := 0.18;
+  cost_km : INTEGER ; 
+  cost_day: INTEGER ; 
+  nb_days : INTEGER ;
+  nb_km : INTEGER ;
+  cost_day : INTEGER ;
+  cost_km_1 : INTEGER ;
+  cost_km_2 : INTEGER ;
+  cost_km_3 : INTEGER ;
+
+BEGIN
+  write("how far do you intend to go with the car?"); //INPUT
+  print(nb_km);
+
+  write("how many days do you intend to be with the car?");//INPUT
+  print(nb_days);
+
+//kilometers
+  cost_km_1 := ((nb_km * r1) + (nb_days * ins) )vat; 
+  cost_km_2 := ((100 * r1) + (nb_km - 100)*r2 + (nb_days * ins)) vat;
+  cost_km_3 := ((100 * r1) + (900 * r2) + (1000 - nb_km )*r2 + ins) vat;
+
+
+  cost_day := ((nb_days * p_d) + ins ) tva; //days
+
+  IF (nb_km > nb_days) THEN
+    write (" the rental by day is the best option for you")
+  ELSE
+    write("the rental by kilometers is the best option for you")
+  END_IF
+
+END
+
+
+

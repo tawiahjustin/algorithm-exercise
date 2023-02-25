@@ -12,9 +12,9 @@ VAR
   nb_days : INTEGER ;
   nb_km : INTEGER ;
   cost_day : INTEGER ;
-  cost_km_1 : INTEGER ;
-  cost_km_2 : INTEGER ;
-  cost_km_3 : INTEGER ;
+  // cost_km_1 : INTEGER ; ces variables sont pas necessaires
+  // cost_km_2 : INTEGER ;
+  // cost_km_3 : INTEGER ;
 
 BEGIN
   write("how far do you intend to go with the car?"); //INPUT
@@ -24,14 +24,26 @@ BEGIN
   print(nb_days);
 
 //kilometers
-  cost_km_1 := ((nb_km * r1) + (nb_days * ins) )vat; 
-  cost_km_2 := ((100 * r1) + (nb_km - 100)*r2 + (nb_days * ins)) vat;
-  cost_km_3 := ((100 * r1) + (900 * r2) + (1000 - nb_km )*r2 + ins) vat;
+  // cost_km_1 := ((nb_km * r1) + (nb_days * ins) )vat; il faut mettre tout ça dans leur condition respective(cas par cas)
+  // cost_km_2 := ((100 * r1) + (nb_km - 100)*r2 + (nb_days * ins)) vat;(Une seule variable cost_km suffit pas besoin d'avoir 1,2 et 3)
+  // cost_km_3 := ((100 * r1) + (900 * r2) + (1000 - nb_km )*r2 + ins) vat; ici t'as oublié ins*nb_days
+
+  if(nb_km > 0 && nb_km < 100){
+    cost_km := ((nb_km * r1) + (nb_days * ins) )vat; 
+  }
+
+  if(nb_km > 100 && nb_km < 1000){
+     cost_km := ((100 * r1) + (nb_km - 100)*r2 + (nb_days * ins)) vat;
+  }
+
+  if(nb_km > 1000){
+    cost_km := ((100 * r1) + (900 * r2) + (1000 - nb_km )*r2 + (ins*nb_days)) vat;
+  }
 
 
   cost_day := ((nb_days * p_d) + ins ) tva; //days
 
-  IF (nb_km > nb_days) THEN
+  IF (nb_km > nb_days) THEN // la condtion est sur le cout pas sur le nb_km et nb_days
     write (" the rental by day is the best option for you")
   ELSE
     write("the rental by kilometers is the best option for you")

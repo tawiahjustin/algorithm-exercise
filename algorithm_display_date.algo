@@ -5,36 +5,38 @@ VAR
 BEGIN
   print("enter six digits : ");
   Read(date);
-  day := (date / 10000) % 100;
+  // day := (date / 10000) %100  NON PAS CORRECT
+  day := date / 10000; // juste /10000, on parle ici de division entiere
   month := (date / 100) % 100;
   years := date % 100;
 
   SWITCH (month) DO
-    case 1 : print("January");
+    case "01" : month:= "January";
     break;
-    case 2 : print("February");
+    case "02" : month :="February"; // pas de print il faut juste affecter à month la valeur
     break;
-    case 3 : print("March");
+    case "03" : print("March"); // tu fais pareil pour tous les autres
     break;
-    case 4 : print("April");
+    case "04" : print("April");
     break;
-    case 5 : print("May");
+    case "05" : print("May");
     break;
-    case 6 : print("June");
+    case "06" : print("June");
     break;
-    case 7 : print("July");
+    case "07" : print("July");
     break;
-    case 5 : print("August");
+    case "08" : print("August");
     break;
-    case 9 : print("September");
+    case "09" : print("September");
     break;
-    case 10 : print("October");
+    case "10" : print("October");
     break;
-    case 11 : print("November");
+    case "11" : print("November");
     break;
-    case 12 : print("December");
+    case "12" : print("December");
     break;
     default : print(" this is not valid, enter a number from 1 - 12")
   END_SWITCH
-  print(month + " " + day + ", " + year + ".");
+  // print(month + " " + day + ", " + year + ".");
+  print("Day : " + day + "\n" + "Month : " + month + "\n" + "Year : " + year); // plutot ça
 END
